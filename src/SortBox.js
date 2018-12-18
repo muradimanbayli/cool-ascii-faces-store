@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 
 class SortBox extends Component {
   render() {
+    const { items, itemChange } = this.props;
 
-    const options = this.props.items.map((sortItem) =>
+    const options = items.map((sortItem) =>
       <option value={sortItem.key}>{sortItem.label}</option>
     );
 
     return (
-      <div>
+      <>
           Sort product by :
-          <select onChange={(val) => {this.props.itemChange(val)}}>
+          <select onChange={(val) => {itemChange(val)}}>
             {options}
           </select>
-      </div>
+      </>
     );
   }
 }
