@@ -1,0 +1,11 @@
+.product{
+  width:496px;
+  float:left;
+  height: 200px;
+  border: 1px solid #DDD;
+  margin: 1px;
+  border-radius: 2px;
+}
+.product p{
+  margin: 10px;
+}
