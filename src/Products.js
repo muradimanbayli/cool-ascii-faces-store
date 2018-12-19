@@ -45,26 +45,17 @@ class Products extends Component {
     }
   }
 
-  render() {
-    let loadingScreen;
-    let noDataScreen;
-
-    if(this.state.isLoading){
-      loadingScreen = <div style={{fontSize: 24, textAlign: 'center'}}>loading ... </div>
+  getAdPanel = (index) => {
+    if(index % 20 === 0 && index !== 0){
+      return <Ad/> ;
     }
+  }
 
-    if(this.state.hasNoMoreData){
-      noDataScreen = <div>~ end of catalogue ~</div>
-    }
-
-    const productItems = this.state.items.map((productItem, index) => {
-      let advertisement;
-      if(index % 20 === 0 && index !== 0){
-        advertisement = <Ad/>
-      }
+  getProductsItems = () => {
+    const items = this.state.items.map((productItem, index) => {
       return (
           <>
-          {advertisement}
+          {this.getAdPanel(index)}
           <Product face={productItem.face}
                size={productItem.size}
                id={productItem.id}
@@ -74,11 +65,27 @@ class Products extends Component {
          );
     });
 
+    return items;
+  }
+
+  getLoadingScreen = () => {
+    if(this.state.isLoading){
+      return <div style={{fontSize: 24, textAlign: 'center'}}>loading ... </div>
+    }
+  }
+
+  getNoDataScreen = () => {
+    if(this.state.hasNoMoreData){
+      return <div>~ end of catalogue ~</div>
+    }
+  }
+
+  render() {
     return (
       <div>
-        {productItems}
-        {loadingScreen}
-        {noDataScreen}
+        { this.getProductsItems() }
+        { this.getLoadingScreen() }
+        { this.getNoDataScreen() }
       </div>
     );
   }
