@@ -11,7 +11,7 @@ class SortBox extends Component {
     return (
       <>
           Sort product by :
-          <select onChange={(val) => {itemChange(val)}}>
+          <select onChange={(val) => {itemChange(val.target.value)}}>
             {options}
           </select>
       </>
