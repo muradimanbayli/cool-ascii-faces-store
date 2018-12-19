@@ -1,0 +1,11 @@
+.ad-panel{
+  width: 100%;
+  float: left;
+  height: 170px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color:white;
+  font-size: 26px;
+  text-align: center;
+}
